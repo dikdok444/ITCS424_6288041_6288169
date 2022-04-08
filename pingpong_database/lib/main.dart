@@ -1,4 +1,10 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
+
+import 'package:pingpong_database/Pages/SecondScreen.dart';
+import 'package:pingpong_database/Pages/ThirdScreen.dart';
+import 'package:pingpong_database/Pages/Customize.dart';
 
 void main() {
   runApp(
@@ -12,7 +18,8 @@ void main() {
         '/': (context) => const FirstScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/Favorite': (context) => const SecondScreen(),
-        '/Search': (context) => const ThirdScreen(),
+        '/Search': (context) => ThirdScreen(),
+        '/Customize': (context) => const Customize(),
       },
     ),
   );
@@ -33,7 +40,7 @@ class FirstScreen extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'Welcome To the PingPong shop',
+                'Welcome To the PingPong information',
                 style: Theme.of(context).textTheme.headline3,
               ),
               Image.asset(
@@ -41,9 +48,18 @@ class FirstScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Text(
-                'Pres to go to add your favorite racket',
-                style: Theme.of(context).textTheme.headline3,
+                'Press to go to add your favorite racket',
+                style: Theme.of(context).textTheme.headline6,
               ),
+              ElevatedButton(
+                  // Within the `FirstScreen` widget
+                  onPressed: () {
+                    // Navigate to the second screen using a named route.
+                    Navigator.pushNamed(context, '/Search');
+                  },
+                  child: const Text('Search'),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.yellow.shade600)),
               ElevatedButton(
                 // Within the `FirstScreen` widget
                 onPressed: () {
@@ -52,57 +68,17 @@ class FirstScreen extends StatelessWidget {
                 },
                 child: const Text('Favorite'),
               ),
+              ElevatedButton(
+                  // Within the `FirstScreen` widget
+                  onPressed: () {
+                    // Navigate to the second screen using a named route.
+                    Navigator.pushNamed(context, '/Customize');
+                  },
+                  child: const Text('Customize'),
+                  style:
+                      ElevatedButton.styleFrom(primary: Colors.green.shade600)),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Favorite'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          // Within the SecondScreen widget
-          onPressed: () {
-            // Navigate back to the first screen by popping the current route
-            // off the stack.
-            Navigator.pushNamed(context, '/Search');
-          },
-          child: const Text('Search'),
-        ),
-      ),
-    );
-  }
-}
-
-class ThirdScreen extends StatelessWidget {
-  const ThirdScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Search'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          // Within the SecondScreen widget
-          onPressed: () {
-            // Navigate back to the first screen by popping the current route
-            // off the stack.
-            Navigator.pop(context);
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
         ),
       ),
     );

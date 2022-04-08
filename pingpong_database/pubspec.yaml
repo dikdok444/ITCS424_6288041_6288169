@@ -58,6 +58,12 @@ flutter:
   uses-material-design: true
   assets:
     - images/stiga-allround-classic-wrb.jpg
+    - images/butterfly-cypress-r.jpg
+    - images/dr-neubauer-barricade-def.jpg
+    - images/lkt-instinct.jpg
+    - images/tibhar-stratus-power-wood.jpg
+    - images/xiom-strato.jpg
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
