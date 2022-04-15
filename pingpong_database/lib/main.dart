@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:pingpong_database/Pages/SecondScreen.dart';
 import 'package:pingpong_database/Pages/ThirdScreen.dart';
 import 'package:pingpong_database/Pages/Customize.dart';
+import 'package:pingpong_database/Pages/Search.dart';
 
 void main() {
   runApp(
@@ -12,14 +13,13 @@ void main() {
       title: 'Homepage',
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.
-      initialRoute: '/',
+      initialRoute: '/Home',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => const FirstScreen(),
+        '/Home': (context) => const FirstScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/Favorite': (context) => const SecondScreen(),
-        '/Search': (context) => ThirdScreen(),
-        '/Customize': (context) => const Customize(),
+        '/Search': (context) => MyApp(),
       },
     ),
   );
@@ -42,14 +42,24 @@ class FirstScreen extends StatelessWidget {
               Text(
                 'Welcome To the PingPong information',
                 style: Theme.of(context).textTheme.headline3,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 30,
               ),
               Image.asset(
                 'images/stiga-allround-classic-wrb.jpg',
                 fit: BoxFit.cover,
               ),
+              SizedBox(
+                height: 30,
+              ),
               Text(
                 'Press to go to add your favorite racket',
                 style: Theme.of(context).textTheme.headline6,
+              ),
+              SizedBox(
+                height: 30,
               ),
               ElevatedButton(
                   // Within the `FirstScreen` widget
@@ -59,7 +69,10 @@ class FirstScreen extends StatelessWidget {
                   },
                   child: const Text('Search'),
                   style: ElevatedButton.styleFrom(
-                      primary: Colors.yellow.shade600)),
+                      primary: Color(0xFF3592FD), fixedSize: Size(100, 25))),
+              SizedBox(
+                height: 10,
+              ),
               ElevatedButton(
                 // Within the `FirstScreen` widget
                 onPressed: () {
@@ -67,16 +80,12 @@ class FirstScreen extends StatelessWidget {
                   Navigator.pushNamed(context, '/Favorite');
                 },
                 child: const Text('Favorite'),
+                style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF3592FD), fixedSize: Size(100, 25)),
               ),
-              ElevatedButton(
-                  // Within the `FirstScreen` widget
-                  onPressed: () {
-                    // Navigate to the second screen using a named route.
-                    Navigator.pushNamed(context, '/Customize');
-                  },
-                  child: const Text('Customize'),
-                  style:
-                      ElevatedButton.styleFrom(primary: Colors.green.shade600)),
+              SizedBox(
+                height: 10,
+              ),
             ],
           ),
         ),
