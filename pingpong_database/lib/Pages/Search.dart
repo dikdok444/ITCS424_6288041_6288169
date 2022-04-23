@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
     //print(response);
-    print(response.data['Items']);
+
     /*List ttname = json
         .decode(response.data['Items']['name']['S'])
         .map((data) => TTModel.fromJson(data))
@@ -57,6 +57,8 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _tabletennis = response.data['Items'];
     });
+    //print(response.data['Items'][0]['control']['N']);
+    print(response.data['Items']);
   }
 
   @override

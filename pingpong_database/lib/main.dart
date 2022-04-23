@@ -6,6 +6,8 @@ import 'package:pingpong_database/Pages/SecondScreen.dart';
 import 'package:pingpong_database/Pages/ThirdScreen.dart';
 import 'package:pingpong_database/Pages/Customize.dart';
 import 'package:pingpong_database/Pages/Search.dart';
+import 'package:pingpong_database/Pages/about.dart';
+import 'package:pingpong_database/Pages/covid.dart';
 
 void main() {
   runApp(
@@ -19,7 +21,9 @@ void main() {
         '/Home': (context) => const FirstScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/Favorite': (context) => const SecondScreen(),
+        '/About': (context) => About(),
         '/Search': (context) => MyApp(),
+        '/COVID': (context) => COVID(),
       },
     ),
   );
@@ -86,6 +90,29 @@ class FirstScreen extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
+              ElevatedButton(
+                // Within the `FirstScreen` widget
+                onPressed: () {
+                  // Navigate to the second screen using a named route.
+                  Navigator.pushNamed(context, '/About');
+                },
+                child: const Text('About us'),
+                style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF3592FD), fixedSize: Size(100, 25)),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              //ElevatedButton(
+              // Within the `FirstScreen` widget
+              //onPressed: () {
+              // Navigate to the second screen using a named route.
+              // Navigator.pushNamed(context, '/COVID');
+              //},
+              //child: const Text('Covid'),
+              // style: ElevatedButton.styleFrom(
+              //primary: Color(0xFF3592FD), fixedSize: Size(100, 25)),
+              //),
             ],
           ),
         ),
